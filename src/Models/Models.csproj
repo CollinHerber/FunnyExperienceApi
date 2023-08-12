@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>FunnyExperience.Server.Models</RootNamespace>
+    <Configurations>Staging;Debug;Release</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|AnyCPU'">
+    <DefineConstants>TRACE;STAGING</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\AccountCredential\**" />
+    <Compile Remove="DTOs\OrderHistory\**" />
+    <Compile Remove="DTOs\VendorChannel\**" />
+    <EmbeddedResource Remove="DTOs\AccountCredential\**" />
+    <EmbeddedResource Remove="DTOs\OrderHistory\**" />
+    <EmbeddedResource Remove="DTOs\VendorChannel\**" />
+    <None Remove="DTOs\AccountCredential\**" />
+    <None Remove="DTOs\OrderHistory\**" />
+    <None Remove="DTOs\VendorChannel\**" />
+    <None Remove="DTOs\DiscordApi\Models\DiscordInteraction\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="7.0.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  
+</Project>
